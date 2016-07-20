@@ -240,7 +240,7 @@ nav li.active{
 	.page4 li h3{line-height: 1.5;}
 	.page4 li p{line-height: 1}
 	.page4 ul{height: auto;padding:0 3%;}
-	.page5 li{margin-bottom: 5%;width: 80px;height: 80px;}
+	.page5 li{margin-bottom: 5%;width: 80px;height: 80px;line-height: 80px;}
 	.page5 p{line-height: 1;margin-bottom: 1%;}
 }
 @media only screen and (max-width:500px) and (orientation : portrait){
@@ -249,6 +249,7 @@ nav li.active{
 		margin-right: auto;
 		float:none;
 	}
+	.page1 .container{padding: 10% 0;}
 	.page1 ul{
 		float:none;
 		margin-left: 15%;
@@ -257,17 +258,17 @@ nav li.active{
 		margin-left: 0;
 		margin-top: -50%;
 	}
-	.page2 li{margin: 25px 0;padding:15px;}
-	.page3 ul li{padding:5%;margin:10%;}
+	.page2 li{margin: 15px 0;padding:10px;}
+	.page3 ul li{padding:5%;margin:5% 10%;}
 	.page4 li{
-		padding: 5%;
+		padding: 2%;
 		margin:5%;
 	}
-	.page4 li p{line-height: 1.5}
-	.page5 li{margin-bottom: 10%;width: 80px;height: 80px;}
-	.page5 p{line-height: 2;margin-bottom: 5%;}
+	.pag34 li h3{line-height: 1.5;}
+	.page4 li p{line-height: 1.2;}
+	.page5 li{margin-bottom: 5%;}
+	.page5 p{line-height: 1.2;margin-bottom: 2%;}
 	.page6 p{
 	font-size: 14px;
-}
-
+	}
 }	
