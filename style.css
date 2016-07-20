@@ -61,15 +61,17 @@ html,body{height: 100%;font-family: "微软雅黑";}
 	display: block;
 	width: 33.3%;height: 100%;
 	float:left;
-	background-size: contain;
-	background-position: center center;
+	background-size: 50px auto;
 	background-repeat: no-repeat;
 	-webkit-filter:grayscale(1);
 }
 .page1 .contact .icon:hover{
 	-webkit-filter:grayscale(0);
 }
-.page1 .contact .weixin{background-image: url('img/weixin.png');}
+.page1 .contact .weixin{
+	background-image: url('img/icon.png');
+	background-position: 20px -9px;
+}
 .page1 .contact .weixin span{
 	position: absolute;
 	display: none;
@@ -81,8 +83,14 @@ html,body{height: 100%;font-family: "微软雅黑";}
 .page1 .contact .weixin span img{
 	width: 100%;height: auto;
 }
-.page1 .contact .qq{background-image: url('img/qq.png');}
-.page1 .contact .github{background-image: url('img/octocat.png');}
+.page1 .contact .qq{
+	background-image: url('img/icon.png');
+	background-position: 20px -53px;
+}
+.page1 .contact .github{
+	background-image: url('img/icon.png');
+	background-position: 20px -96px;
+}
 .page2{
 	background-color: #FF9520;
 }
