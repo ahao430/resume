@@ -5,6 +5,7 @@ window.onload = window.onresize = function(){
 		lis=navs.getElementsByTagName('li'),
 		index=0,
 		timer=null,
+		timer2=null,
 		cH=document.documentElement.clientHeight||document.body.clientHeight;
 	/*初始化页面*/
 	for(var i=0;i<lis.length;i++){
@@ -30,12 +31,31 @@ window.onload = window.onresize = function(){
 	};
 	/*翻页*/
 	function changePages(){
-		for(var j=0;j<pages.length;j++){
-			pages[j].style.top = (pages[j].index -index)*cH+'px';
-		}
+		clearInterval(timer2);
+		var startpos= parseFloat(pages[0].style.top),
+			targetpos=(pages[0].index -index)*cH,
+			speed=20,
+			times=50,
+			flag=0,
+			intervalflag=true,
+			step = (targetpos-startpos)/times;
+		timer2=setInterval(function(){
+			if(flag==times-1){intervalflag=false;clearInterval(timer2);}
+			for(var i=0;i<pages.length;i++){
+				pages[i].style.top = parseFloat(pages[i].style.top) + step + 'px';
+			}
+			flag++;
+		},speed);
 		if(index==1){
-			Animate();
-		}
+				Animate();
+			}
+		if(intervalflag===false){fix();}
+		/*校正小数造成的误差*/
+		function fix(){
+			for(var m=0;m<pages.length;m++){
+				pages[m].style.top = (pages[m].index - index)*cH + 'px';
+			}	
+		};
 	}
 	/*监听鼠标滚动和键盘*/
 	document.onkeydown=function(e){
@@ -127,7 +147,7 @@ window.onload = window.onresize = function(){
 				}
 				lis[i].style.width= +(lis[i].style.width.replace("%",""))+1+"%";
 			}
-		},12);
+		},20);
 	}
 	/*qq跳转前询问*/
 	var qq=document.getElementById('qq');
