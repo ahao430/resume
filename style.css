@@ -269,7 +269,7 @@ nav li.active{
 	}
 	.pag34 li h3{line-height: 1.5;}
 	.page4 li p{line-height: 1.2;}
-	.page5 li{margin-bottom: 5%;}
+	.page5 li{margin-bottom: 5%;width: 70px;height: 70px;line-height: 70px;}
 	.page5 p{line-height: 1.2;margin-bottom: 2%;}
 	.page6 p{
 	font-size: 14px;
