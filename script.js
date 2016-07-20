@@ -118,7 +118,7 @@ window.onload = window.onresize = function(){
 				}
 				lis[i].style.width= +(lis[i].style.width.replace("%",""))+1+"%";
 			}
-		},10);
+		},12);
 	}
 
 }

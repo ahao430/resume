@@ -154,7 +154,6 @@ html,body{height: 100%;font-family: "微软雅黑";}
 	box-shadow: 0 0 10px red;
 }
 .page4 li h3{
-	font-size: ;
 	text-align: center;
 	line-height: 5;
 	color: blue;
@@ -162,6 +161,7 @@ html,body{height: 100%;font-family: "微软雅黑";}
 .page4 li p{
 	line-height: 2;
 	text-indent: 2em;
+	font-size: 14px;
 }
 .page5{
 	background-color: #FAEC7C;
@@ -217,4 +217,57 @@ nav li.active{
 	border-color: #E7E6E6;
 }
 /* 响应式 */
-@media only screen and 
+@media only screen and (max-width:850px){
+	.page1 .pic{
+		width: 150px;
+		height: 150px;
+		margin-left: 10%;
+	}
+	.page1 ul{padding-left: 10%;}
+	.page1 li span{font-size: 25px;}
+	.page1 .contact{width: 60%;}
+	.page1 .contact .weixin span{
+		margin-left: -10%;
+		margin-top: -10%;
+	}
+	.page2 li{margin: 10px 0;padding:5px;}
+	.page3 ul li{padding:2%;margin:1% 10%;}
+	.page4 li{
+		float:none;width: 90%;
+		padding: 1%;
+		margin:0 0 2%;
+	}
+	.page4 li h3{line-height: 1.5;}
+	.page4 li p{line-height: 1}
+	.page4 ul{height: auto;padding:0 3%;}
+	.page5 li{margin-bottom: 5%;width: 80px;height: 80px;}
+	.page5 p{line-height: 1;margin-bottom: 1%;}
+}
+@media only screen and (max-width:500px) and (orientation : portrait){
+	.page1 .pic{
+		margin-left:auto;
+		margin-right: auto;
+		float:none;
+	}
+	.page1 ul{
+		float:none;
+		margin-left: 15%;
+	}
+	.page1 .contact .weixin span{
+		margin-left: 0;
+		margin-top: -50%;
+	}
+	.page2 li{margin: 25px 0;padding:15px;}
+	.page3 ul li{padding:5%;margin:10%;}
+	.page4 li{
+		padding: 5%;
+		margin:5%;
+	}
+	.page4 li p{line-height: 1.5}
+	.page5 li{margin-bottom: 10%;width: 80px;height: 80px;}
+	.page5 p{line-height: 2;margin-bottom: 5%;}
+	.page6 p{
+	font-size: 14px;
+}
+
+}	
