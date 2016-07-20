@@ -44,13 +44,21 @@ window.onload = window.onresize = function(){
 	}
 	document.onmousewheel=function(e){
 		e=e||window.event;
-		if(e.wheelDelta>0||e.detail<0){
+		if(e.wheelDelta>0){
 			scrollUp();
 		}
-		if(e.wheelDelta<0||e.detail>0){
+		if(e.wheelDelta<0){
 			scrollDown();
 		}
 	}
+	document.body.addEventListener("DOMMouseScroll", function(e) {
+    if(e.detail<0){
+			scrollUp();
+		}
+		if(e.detail>0){
+			scrollDown();
+		}
+});
 	/*上下翻页*/
 	function scrollDown(){
 		if(index==5){
