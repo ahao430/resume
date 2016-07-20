@@ -120,5 +120,12 @@ window.onload = window.onresize = function(){
 			}
 		},12);
 	}
-
+	/*qq跳转前询问*/
+	var qq=document.getElementById('qq');
+	qq.onclick=function(e){
+		var ask=confirm("打开QQ通话？");
+		if(!ask){
+			e.preventDefault();
+		}
+	}
 }
