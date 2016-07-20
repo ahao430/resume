@@ -137,4 +137,29 @@ window.onload = window.onresize = function(){
 			e.preventDefault();
 		}
 	};
+	/*触屏事件监听*/
+	document.addEventListener('touchstart',touchStart,false);
+	document.addEventListener('touchmove',touchMove,false);
+	document.addEventListener('touchend',touchEnd,false);
+	var startX,startY,x,y;
+	function touchStart(e){
+		var touch=e.touches[0];
+		startX=Number(touch.pageX);
+		startY=Number(touch.pageY);
+		x=startX;
+		y=startY;
+	}
+	function touchMove(e){
+		e.preventDefault();
+		var touch=e.targetTouches[0];
+		x=Number(touch.pageX);
+		y=Number(touch.pageY);
+	}
+	function touchEnd(e){
+		if(y-startY>100){
+			scrollUp();
+		}else if(y-startY<-100){
+			scrollDown();
+		}
+	}
 };
