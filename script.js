@@ -12,6 +12,11 @@ window.onload = window.onresize = function(){
 		pages[i].index=i;
 		lis[i].index=i;
 	}
+	/*初始化导航*/
+	lis[0].className="active";
+	for(var i=1;i<lis.length;i++){
+		lis[i].className="";
+	}
 	/*点击切换*/
 	navs.onclick=function(e){
 		e=e||window.event;
