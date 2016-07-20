@@ -14,20 +14,20 @@ window.onload = window.onresize = function(){
 	}
 	/*初始化导航*/
 	lis[0].className="active";
-	for(var i=1;i<lis.length;i++){
-		lis[i].className="";
+	for(var k=1;k<lis.length;k++){
+		lis[k].className="";
 	}
 	/*点击切换*/
 	navs.onclick=function(e){
 		e=e||window.event;
-		if(e.target.index==undefined||e.target.index==index){
+		if(e.target.index===undefined||e.target.index==index){
 			return false;
 		}
 		lis[index].className="";
 		index=e.target.index;
 		lis[index].className="active";
 		changePages();
-	}
+	};
 	/*翻页*/
 	function changePages(){
 		for(var j=0;j<pages.length;j++){
@@ -46,7 +46,7 @@ window.onload = window.onresize = function(){
 		if(e.keyCode==34||e.keyCode==40){
 			scrollDown();
 		}
-	}
+	};
 	document.onmousewheel=function(e){
 		e=e||window.event;
 		if(e.wheelDelta>0){
@@ -55,15 +55,17 @@ window.onload = window.onresize = function(){
 		if(e.wheelDelta<0){
 			scrollDown();
 		}
+	};
+	if(navigator.userAgent.indexOf("Firefox") > -1){
+		document.body.addEventListener("DOMMouseScroll", function(e) {
+	    if(e.detail<0){
+				scrollUp();
+			}
+			if(e.detail>0){
+				scrollDown();
+			}
+		});
 	}
-	document.body.addEventListener("DOMMouseScroll", function(e) {
-    if(e.detail<0){
-			scrollUp();
-		}
-		if(e.detail>0){
-			scrollDown();
-		}
-});
 	/*上下翻页*/
 	function scrollDown(){
 		if(index==5){
@@ -75,7 +77,7 @@ window.onload = window.onresize = function(){
 		changePages();
 	}
 	function scrollUp(){
-		if(index==0){
+		if(index===0){
 			return false;
 		}
 		lis[index].className="";
@@ -91,10 +93,10 @@ window.onload = window.onresize = function(){
 		e.preventDefault();
 		weixin.getElementsByTagName('span')[0].style.display="block";
 		e.stopPropagation();
-	}
+	};
 	pages[0].onclick=function(){
 		weixin.getElementsByTagName('span')[0].style.display="none";
-	}
+	};
 	/*page2,动画效果*/
 	function Animate(){
 		clearInterval(timer);
@@ -106,10 +108,12 @@ window.onload = window.onresize = function(){
 		timer=setInterval(function(){
 			for(var i=0;i<lis.length;i++){
 				if(count==lis.length){
-					clearInterval();
+					clearInterval(timer);
+				}
+				if(+(lis[i].style.width.replace("%",""))==lis[i].value-1){
+					count++;
 				}
 				if(+(lis[i].style.width.replace("%",""))==lis[i].value){
-					count++;
 					continue;
 				}
 				if(+(lis[i].style.width.replace("%",""))>=30){
@@ -132,5 +136,5 @@ window.onload = window.onresize = function(){
 		if(!ask){
 			e.preventDefault();
 		}
-	}
-}
+	};
+};
