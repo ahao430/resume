@@ -9,7 +9,7 @@ a:hover,a:active{color:#f00;}
 	display: table;
 	clear:both;
 }
-html,body{height: 100%;font-family: "微软雅黑";}
+html,body{height: 100%;font-family: "微软雅黑";min-width: 320px;}
 .wrapper{
 	height: 100%;
 	overflow: hidden;
