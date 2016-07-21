@@ -108,20 +108,6 @@ html,body{height: 100%;font-family: "微软雅黑";min-width: 320px;}
 	width: 0%;
 	cursor: pointer;
 }
-.page2 li span{
-	display: none;
-	background-color: #08EBF7;
-	color:blue;
-	font-size: 14px;
-	padding: 5px;
-	display: none;
-	position: absolute;
-	margin-top: 5px;
-	box-shadow: 0 0 10px #000;
-}
-.page2 li:hover span{
-	display: block;
-}
 .page3{
 	background-color: #FFC6EC;
 }
@@ -140,7 +126,7 @@ html,body{height: 100%;font-family: "微软雅黑";min-width: 320px;}
 .page3 li:hover i{
 	color:red;
 }
-.page3 li span{
+.page2 li span,.page3 li span{
 	display: none;
 	background-color: #08EBF7;
 	color:blue;
@@ -152,8 +138,12 @@ html,body{height: 100%;font-family: "微软雅黑";min-width: 320px;}
 	box-shadow: 0 0 10px #000;
 	max-width: 70%;
 }
-.page3 li:hover span{
+.page2 li:hover span,.page3 li:hover span{
 	display: block;
+}
+.page2 li:hover,.page3 li:hover{
+	cursor:pointer;
+	box-shadow: 1px 1px 10px 5px #999;
 }
 .page4{
 	background-color: #A778ED;
@@ -203,11 +193,20 @@ html,body{height: 100%;font-family: "微软雅黑";min-width: 320px;}
 	line-height: 100px;
 	font-size: 12px;
 	margin-right: 10%;
+	box-sizing: border-box;
 }
-.page li a{
+.page5 li a{
 	display: block;
 	width: 100%;
 	height: 100%;
+}
+.page5 li:hover{
+	background-color: #fff;
+	border:2px solid #FC9606;
+}
+.page5 li:hover a{
+	color:#FC9606;
+	font-weight: bold;
 }
 .page6{
 	background-color: #0AFFF3;
