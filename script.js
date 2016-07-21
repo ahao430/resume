@@ -6,7 +6,13 @@ window.onload = window.onresize = function(){
 		index=0,
 		timer=null,
 		timer2=null,
-		cH=document.documentElement.clientHeight||document.body.clientHeight;
+		cH=document.documentElement.clientHeight||document.body.clientHeight,
+		weixin=document.getElementById('weixin'),
+		skills=document.getElementById('skills').getElementsByTagName('li'),
+		qq=document.getElementById('qq');
+	document.addEventListener('touchstart',touchStart,false);
+	document.addEventListener('touchmove',touchMove,false);
+	document.addEventListener('touchend',touchEnd,false);
 	/*初始化页面*/
 	for(var i=0;i<lis.length;i++){
 		pages[i].style.top=i*cH+'px';
@@ -34,7 +40,7 @@ window.onload = window.onresize = function(){
 		clearInterval(timer2);
 		var startpos= parseFloat(pages[0].style.top),
 			targetpos=(pages[0].index -index)*cH,
-			speed=20,
+			speed=10,
 			times=50,
 			flag=0,
 			intervalflag=true,
@@ -107,50 +113,47 @@ window.onload = window.onresize = function(){
 	}
 /*其他*/
 	/*page1，微信二维码*/
-	var weixin=document.getElementById('weixin');
-	weixin.onclick=function(e){
+	weixin.addEventListener('click',function(e){
 		e=e||window.event;
 		e.preventDefault();
 		weixin.getElementsByTagName('span')[0].style.display="block";
 		e.stopPropagation();
-	};
+	},false);
 	pages[0].onclick=function(){
 		weixin.getElementsByTagName('span')[0].style.display="none";
 	};
 	/*page2,动画效果*/
 	function Animate(){
 		clearInterval(timer);
-		var lis=document.getElementById('skills').getElementsByTagName('li'),
-			count=0;
-		for(var i=0;i<lis.length;i++){
-			lis[i].style.width='0%';
+		var count=0;
+		for(var i=0;i<skills.length;i++){
+			skills[i].style.width='0%';
 		}
 		timer=setInterval(function(){
-			for(var i=0;i<lis.length;i++){
-				if(count==lis.length){
+			for(var i=0;i<skills.length;i++){
+				if(count==skills.length){
 					clearInterval(timer);
 				}
-				if(+(lis[i].style.width.replace("%",""))==lis[i].value-1){
+				if(+(skills[i].style.width.replace("%",""))==skills[i].value-1){
 					count++;
 				}
-				if(+(lis[i].style.width.replace("%",""))==lis[i].value){
+				if(+(skills[i].style.width.replace("%",""))==skills[i].value){
 					continue;
 				}
-				if(+(lis[i].style.width.replace("%",""))>=30){
-					lis[i].style.backgroundColor='#607E5B';
+				if(+(skills[i].style.width.replace("%",""))>=30){
+					skills[i].style.backgroundColor='#607E5B';
 				}
-				if(+(lis[i].style.width.replace("%",""))>=50){
-					lis[i].style.backgroundColor='#46AF46';
+				if(+(skills[i].style.width.replace("%",""))>=50){
+					skills[i].style.backgroundColor='#46AF46';
 				}
-				if(+(lis[i].style.width.replace("%",""))>=80){
-					lis[i].style.backgroundColor='#27F605';
+				if(+(skills[i].style.width.replace("%",""))>=80){
+					skills[i].style.backgroundColor='#27F605';
 				}
-				lis[i].style.width= +(lis[i].style.width.replace("%",""))+1+"%";
+				skills[i].style.width= +(skills[i].style.width.replace("%",""))+1+"%";
 			}
 		},20);
 	}
 	/*qq跳转前询问*/
-	var qq=document.getElementById('qq');
 	qq.onclick=function(e){
 		var ask=confirm("打开QQ通话？");
 		if(!ask){
@@ -158,9 +161,7 @@ window.onload = window.onresize = function(){
 		}
 	};
 	/*触屏事件监听*/
-	document.addEventListener('touchstart',touchStart,false);
-	document.addEventListener('touchmove',touchMove,false);
-	document.addEventListener('touchend',touchEnd,false);
+	
 	var startX,startY,x,y;
 	function touchStart(e){
 		var touch=e.touches[0];
@@ -176,9 +177,9 @@ window.onload = window.onresize = function(){
 		y=Number(touch.pageY);
 	}
 	function touchEnd(e){
-		if(y-startY>100){
+		if(y-startY>60){
 			scrollUp();
-		}else if(y-startY<-100){
+		}else if(y-startY<-60){
 			scrollDown();
 		}
 	}

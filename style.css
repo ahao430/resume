@@ -109,7 +109,7 @@ html,body{height: 100%;font-family: "微软雅黑";min-width: 320px;}
 	cursor: pointer;
 }
 .page2 li span{
-	display: block;
+	display: none;
 	background-color: #08EBF7;
 	color:blue;
 	font-size: 14px;
@@ -133,12 +133,27 @@ html,body{height: 100%;font-family: "微软雅黑";min-width: 320px;}
 	line-height: 20px;
 	// text-align: center;
 }
-.page3 li span{
+.page3 li i{
 	padding-left: 10%;
 	padding-right: 10%;
 }
-.page3 li:hover span{
+.page3 li:hover i{
 	color:red;
+}
+.page3 li span{
+	display: none;
+	background-color: #08EBF7;
+	color:blue;
+	font-size: 14px;
+	padding: 5px;
+	display: none;
+	position: absolute;
+	margin-top: 5px;
+	box-shadow: 0 0 10px #000;
+	max-width: 70%;
+}
+.page3 li:hover span{
+	display: block;
 }
 .page4{
 	background-color: #A778ED;
@@ -227,7 +242,7 @@ nav li.active{
 		margin-left: 10%;
 	}
 	.page1 ul{padding-left: 10%;}
-	.page1 li span{font-size: 25px;}
+	.page1 li span{font-size: 20px;font-weight: bold;}
 	.page1 .contact{width: 60%;}
 	.page1 .contact .weixin span{
 		margin-left: -10%;
