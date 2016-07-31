@@ -11,7 +11,6 @@ window.onload = window.onresize = function(){
 		skills=document.getElementById('skills').getElementsByTagName('li'),
 		qq=document.getElementById('qq');
 	document.addEventListener('touchstart',touchStart,false);
-	document.addEventListener('touchmove',touchMove,false);
 	document.addEventListener('touchend',touchEnd,false);
 	/*初始化页面*/
 	for(var i=0;i<lis.length;i++){
@@ -162,24 +161,18 @@ window.onload = window.onresize = function(){
 	};
 	/*触屏事件监听*/
 	
-	var startX,startY,x,y;
+	var startX,startY,endX,endY;
 	function touchStart(e){
 		var touch=e.touches[0];
-		startX=Number(touch.pageX);
-		startY=Number(touch.pageY);
-		x=startX;
-		y=startY;
-	}
-	function touchMove(e){
-		e.preventDefault();
-		var touch=e.targetTouches[0];
-		x=Number(touch.pageX);
-		y=Number(touch.pageY);
+		startX=touch.pageX;
+		startY=touch.pageY;
 	}
 	function touchEnd(e){
-		if(y-startY>60){
+		endX=e.changedTouches[0].pageX;
+		endY=e.changedTouches[0].pageY;
+		if(endY-startY>60){
 			scrollUp();
-		}else if(y-startY<-60){
+		}else if(endY-startY<-60){
 			scrollDown();
 		}
 	}
