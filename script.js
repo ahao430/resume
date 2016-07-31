@@ -11,6 +11,7 @@ window.onload = window.onresize = function(){
 		skills=document.getElementById('skills').getElementsByTagName('li'),
 		qq=document.getElementById('qq');
 	document.addEventListener('touchstart',touchStart,false);
+	document.addEventListener('touchmove',touchMove,false);
 	document.addEventListener('touchend',touchEnd,false);
 	/*初始化页面*/
 	for(var i=0;i<lis.length;i++){
@@ -166,6 +167,9 @@ window.onload = window.onresize = function(){
 		var touch=e.touches[0];
 		startX=touch.pageX;
 		startY=touch.pageY;
+	}
+	function touchMove(e){
+		e.preventDefault();
 	}
 	function touchEnd(e){
 		endX=e.changedTouches[0].pageX;
